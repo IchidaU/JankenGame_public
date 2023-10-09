@@ -4,6 +4,8 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -13,7 +15,9 @@ import javax.swing.JPanel;
 public class Main {
 	
 	//プレイヤー側手配列
-	private static String[] player = {"グー","チョキ","パー"};
+	private static String[] hands = {"グー","チョキ","パー"};
+	
+	static JLabel contentsLabel;
 
 	public static void main(String[] args) {
 		//Main Window
@@ -33,7 +37,7 @@ public class Main {
 		//ContentsPanel
 		JPanel contentsPanel = PanelMaker.makePanel(Color.WHITE);
 		contentsPanel.setLayout(new BorderLayout());
-		JLabel contentsLabel = TextMaker.makeText("じゃんけん…",54,Color.BLACK);
+		contentsLabel = TextMaker.makeText("じゃんけん…",54,Color.BLACK);
 		contentsPanel.add(contentsLabel);
 		frame.add(contentsPanel, BorderLayout.CENTER);
 		
@@ -42,9 +46,10 @@ public class Main {
 		footerPanel.setLayout(new GridLayout());
 		
 		//ボタン生成
-		for(String hand : player) {
+		for(String hand : hands) {
 			JButton button = new JButton(hand);
 			button.setFont(new Font("Meiryo", Font.PLAIN, 24));
+			button.addActionListener(new ButtonActionListener());
 			footerPanel.add(button);
 		}
 		
@@ -52,5 +57,14 @@ public class Main {
 		
 		frame.setVisible(true);
 		
+	}
+	
+	static class ButtonActionListener implements ActionListener{
+		public void actionPerformed(ActionEvent e) {
+			int computerNum = ComputerHand.getComputerHand();
+			String computerHand = hands[computerNum];
+			contentsLabel.setText(computerHand);
+			System.out.println(e.getActionCommand());
+		}
 	}
 }
