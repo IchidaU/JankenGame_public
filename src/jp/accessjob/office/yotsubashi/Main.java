@@ -80,7 +80,6 @@ public class Main {
 			//勝敗判定、結果表示
 			String result = Judge.judgeResult(playerNum, computerNum);
 			headerLabel.setText(result);
-			System.out.println(e.getActionCommand());
 		}
 	}
 }
