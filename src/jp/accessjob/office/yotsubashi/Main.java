@@ -23,13 +23,13 @@ public class Main {
 	public static void main(String[] args) {
 		//Main Window
 		JFrame frame = new JFrame("じゃんけんゲーム");
-		frame.setSize(900, 600);
+		frame.setSize(900, 650);
 		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setResizable(false);
 		
 		//HaderPanel
-		JPanel headerPanel = PanelMaker.makePanel(Color.BLACK, 900,50);
+		JPanel headerPanel = PanelMaker.makePanel(Color.BLACK, 900,100);
 		headerPanel.setLayout(new BorderLayout());
 		headerLabel = TextMaker.makeText("じゃんけんしようぜ！", 24, Color.WHITE);
 		headerPanel.add(headerLabel);
@@ -43,7 +43,7 @@ public class Main {
 		frame.add(contentsPanel, BorderLayout.CENTER);
 		
 		//FooterPanel
-		JPanel footerPanel = PanelMaker.makePanel(Color.BLACK,900,50);
+		JPanel footerPanel = PanelMaker.makePanel(Color.BLACK,900,200);
 		footerPanel.setLayout(new GridLayout());
 		
 		//ボタン生成
