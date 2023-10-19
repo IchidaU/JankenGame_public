@@ -7,6 +7,7 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -16,7 +17,13 @@ public class Main {
 	
 	//プレイヤー側手配列
 	private static String[] hands = {"グー","チョキ","パー"};
-	
+	private ImageIcon[] buttonHands = new ImageIcon[3];
+		//初期化ブロック
+	{
+	buttonHands[0] = new ImageIcon("img/image1.png");
+	buttonHands[1] = new ImageIcon("img/image2.png");
+	buttonHands[2] = new ImageIcon("img/image3.png");
+	}
 	static JLabel contentsLabel;
 	static JLabel headerLabel;
 
