@@ -17,13 +17,12 @@ public class Main {
 	
 	//プレイヤー側手配列
 	private static String[] hands = {"グー","チョキ","パー"};
-	private ImageIcon[] buttonHands = new ImageIcon[3];
-		//初期化ブロック
-	{
-	buttonHands[0] = new ImageIcon("img/image1.png");
-	buttonHands[1] = new ImageIcon("img/image2.png");
-	buttonHands[2] = new ImageIcon("img/image3.png");
-	}
+	private static ImageIcon[] buttonHands = 	{
+	new ImageIcon("img/image1.png"),
+	new ImageIcon("img/image2.png"),
+	new ImageIcon("img/image3.png")
+	};
+
 	static JLabel contentsLabel;
 	static JLabel headerLabel;
 
@@ -54,12 +53,14 @@ public class Main {
 		footerPanel.setLayout(new GridLayout());
 		
 		//ボタン生成
-		for(String hand : hands) {
-			JButton button = new JButton(hand);
+		for(int i=0; i<hands.length; i++) {
+			JButton button = new JButton(hands[i],buttonHands[i]);
 			button.setFont(new Font("Meiryo", Font.PLAIN, 24));
+			button.setHorizontalTextPosition(JButton.CENTER);
+			button.setVerticalTextPosition(JButton.BOTTOM);
 			button.addActionListener(new ButtonActionListener());
 			footerPanel.add(button);
-		}
+		}		
 		
 		frame.add(footerPanel, BorderLayout.SOUTH);
 		
