@@ -7,6 +7,7 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -14,13 +15,22 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class Main {
-	
+	//contentspanelデフォルト画像
+	private static ImageIcon defaultImage = new ImageIcon("img/image0.png"); 
+		
 	//プレイヤー側手配列
 	private static String[] hands = {"グー","チョキ","パー"};
 	private static ImageIcon[] buttonHands = 	{
-	new ImageIcon("img/image1.png"),
-	new ImageIcon("img/image2.png"),
-	new ImageIcon("img/image3.png")
+			new ImageIcon("img/image1.png"),
+			new ImageIcon("img/image2.png"),
+			new ImageIcon("img/image3.png")
+	};
+	
+	//コンピュータ側画像
+	private static ImageIcon[] panelHands = {
+			new ImageIcon("img/image4.png"),
+			new ImageIcon("img/image5.png"),
+			new ImageIcon("img/image6.png")
 	};
 
 	static JLabel contentsLabel;
@@ -29,7 +39,7 @@ public class Main {
 	public static void main(String[] args) {
 		//Main Window
 		JFrame frame = new JFrame("じゃんけんゲーム");
-		frame.setSize(900, 650);
+		frame.setSize(900, 750);
 		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setResizable(false);
@@ -37,14 +47,14 @@ public class Main {
 		//HaderPanel
 		JPanel headerPanel = PanelMaker.makePanel(Color.BLACK, 900,100);
 		headerPanel.setLayout(new BorderLayout());
-		headerLabel = TextMaker.makeText("じゃんけんしようぜ！", 24, Color.WHITE);
+		headerLabel = ContentsMaker.makeText("じゃんけんしようぜ！", 48, Color.WHITE);
 		headerPanel.add(headerLabel);
 		frame.add(headerPanel, BorderLayout.NORTH);
 		
 		//ContentsPanel
 		JPanel contentsPanel = PanelMaker.makePanel(Color.WHITE);
 		contentsPanel.setLayout(new BorderLayout());
-		contentsLabel = TextMaker.makeText("じゃんけん…",54,Color.BLACK);
+		contentsLabel = ContentsMaker.makeContents("じゃんけん…", defaultImage, 72, Color.BLACK);
 		contentsPanel.add(contentsLabel);
 		frame.add(contentsPanel, BorderLayout.CENTER);
 		
@@ -71,10 +81,12 @@ public class Main {
 	//ボタンアクション
 	static class ButtonActionListener implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
-			//コンピュータ側手生成、テキスト挿入
+			//コンピュータ側手生成、テキスト・画像挿入
 			int computerNum = ComputerHand.getComputerHand();
 			String computerHand = hands[computerNum];
+			Icon computerIcon = panelHands[computerNum];
 			contentsLabel.setText(computerHand);
+			contentsLabel.setIcon(computerIcon);
 			
 			//プレイヤー側手取得
 			int playerNum = 0;
