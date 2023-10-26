@@ -15,22 +15,23 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class Main {
+	
 	//contentspanelデフォルト画像
-	private static ImageIcon defaultImage = new ImageIcon("img/image0.png"); 
+	private static ImageIcon defaultImage = new ImageIcon(Main.class.getResource("img/image0.png")); 
 		
 	//プレイヤー側手配列
 	private static String[] hands = {"グー","チョキ","パー"};
 	private static ImageIcon[] buttonHands = 	{
-			new ImageIcon("img/image1.png"),
-			new ImageIcon("img/image2.png"),
-			new ImageIcon("img/image3.png")
+			new ImageIcon(Main.class.getResource("img/image1.png")),
+			new ImageIcon(Main.class.getResource("img/image2.png")),
+			new ImageIcon(Main.class.getResource("img/image3.png"))
 	};
 	
 	//コンピュータ側画像
 	private static ImageIcon[] panelHands = {
-			new ImageIcon("img/image4.png"),
-			new ImageIcon("img/image5.png"),
-			new ImageIcon("img/image6.png")
+			new ImageIcon(Main.class.getResource("img/image4.png")),
+			new ImageIcon(Main.class.getResource("img/image5.png")),
+			new ImageIcon(Main.class.getResource("img/image6.png"))
 	};
 
 	static JLabel contentsLabel;
