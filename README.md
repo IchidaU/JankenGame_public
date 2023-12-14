@@ -6,7 +6,7 @@ JavaによるGUIアプリケーションの練習として作成しました。
 ベースは[こちらのサイト](https://original-game.com/java-janken-game-program/)を、勝敗判定部分は[こちらのサイト](https://ict-skillup.com/java/1405/)を参考にしました。
 
 ## ダウンロード・インストール・アンインストール
-最新版はバージョン1.1.0です。[こちら](https://github.com/IchidaU/JankenGame/blob/master/release/package/JankenGame1.1.0.exe)からダウンロードしてください。
+最新版はバージョン1.1.0です。[こちら](https://github.com/IchidaU/JankenGame_public/releases/tag/JankenGame1.1.0)からJankenGame1.1.0.exeをダウンロードしてください。
 
 ダウンロードしたexeファイルを実行すると自動的にインストールされます。Javaランタイムを同梱しているため、別途Javaをインストールする必要はありません。
 
